@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes-server
 # filename : message
 # author : ly_13
 # date : 9/15/2024

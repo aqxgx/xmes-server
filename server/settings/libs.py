@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes-server
 # filename : libs
 # author : ly_13
 # date : 11/14/2024

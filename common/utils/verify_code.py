@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes-server
 # filename : verify_code
 # author : ly_13
 # date : 8/6/2024
