@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes_server
 # filename : modelfield
 # author : ly_13
 # date : 1/5/2024

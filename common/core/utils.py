@@ -92,15 +92,15 @@ def get_all_url_dict(pre_url='/'):
 
 
 def auto_register_app_url(urlpatterns):
-    xadmin_apps = []
+    xmes_apps = []
     for app in settings.XADMIN_APPS:
         if '.' in app:
-            xadmin_apps.append(import_string(app).name)
+            xmes_apps.append(import_string(app).name)
         else:
-            xadmin_apps.append(app)
-    # xadmin_apps = [x.split('.')[0] for x in settings.XADMIN_APPS]
+            xmes_apps.append(app)
+    # xmes_apps = [x.split('.')[0] for x in settings.XADMIN_APPS]
     for name, value in apps.app_configs.items():
-        if name not in xadmin_apps: continue
+        if name not in xmes_apps: continue
         # try:
         urls = import_from_string(f"{name}.config.URLPATTERNS")
         logger.info(f"auto register {name} url success")

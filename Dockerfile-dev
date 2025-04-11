@@ -1,4 +1,4 @@
-FROM registry.cn-beijing.aliyuncs.com/nineaiyu/python:3.13.2-slim
+FROM registry.cn-beijing.aliyuncs.com/aqxgx/python:3.13.2-slim
 
 # add pip cn mirrors
 ARG PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
@@ -32,7 +32,7 @@ RUN --mount=type=cache,target=/root/.cache,id=core \
     && pip install -U setuptools pip --ignore-installed -i ${PIP_MIRROR}  \
     && pip install --no-cache-dir -r requirements.txt -i ${PIP_MIRROR}
 
-WORKDIR /data/xadmin-server/
+WORKDIR /data/xmes-server/
 
 ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
 

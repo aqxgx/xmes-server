@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes_server
 # filename : common
 # author : ly_13
 # date : 9/14/2024
@@ -16,7 +16,7 @@ import psutil
 def get_logger(name='') -> logging.Logger:
     if '/' in name:
         name = os.path.basename(name).replace('.py', '')
-    return logging.getLogger(f'xadmin.{name}')
+    return logging.getLogger(f'xmes.{name}')
 
 
 class lazyproperty:

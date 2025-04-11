@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes_server
 # filename : logging
 # author : ly_13
 # date : 10/18/2024
@@ -96,7 +96,7 @@ LOGGING = {
             'level': LOG_LEVEL,
             'propagate': False,
         },
-        'xadmin': {
+        'xmes': {
             'handlers': ['console', 'server'],
             'level': LOG_LEVEL,
         },

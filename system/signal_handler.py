@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes_server
 # filename : signal_handler.py
 # author : ly_13
 # date : 12/15/2023

@@ -14,7 +14,7 @@ import yaml
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-logger = logging.getLogger('xadmin.conf')
+logger = logging.getLogger('xmes.conf')
 
 
 def import_string(dotted_path):
@@ -57,7 +57,7 @@ class Config(dict):
         'DB_ENGINE': 'mysql',
         'DB_HOST': 'mariadb',
         'DB_PORT': 3306,
-        'DB_DATABASE': 'xadmin',
+        'DB_DATABASE': 'xmes',
         'DB_USER': 'server',
         'DB_PASSWORD': '',
         'LANGUAGE_CODE': 'zh-hans',
@@ -150,7 +150,7 @@ class Config(dict):
         'EMAIL_HOST_PASSWORD': "",
         'EMAIL_FROM': "",
         'EMAIL_RECIPIENT': "",
-        'EMAIL_SUBJECT_PREFIX': "Xadmin-Server ",
+        'EMAIL_SUBJECT_PREFIX': "xmes_server ",
         'EMAIL_USE_SSL': True,
         'EMAIL_USE_TLS': False,
         # 短信配置

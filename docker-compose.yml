@@ -8,8 +8,8 @@ networks:
 
 services:
   nginx:
-    image: registry.cn-beijing.aliyuncs.com/nineaiyu/nginx:1.24-bullseye
-    container_name: xadmin-nginx
+    image: registry.cn-beijing.aliyuncs.com/aqxgx/nginx:1.24-bullseye
+    container_name: xmes-nginx
     restart: always
     volumes:
       - ./utils/nginx.conf:/etc/nginx/nginx.conf:r
@@ -20,17 +20,17 @@ services:
       - net
 
   postgresql:
-    image: registry.cn-beijing.aliyuncs.com/nineaiyu/postgres:16.7
-    container_name: xadmin-postgresql
+    image: registry.cn-beijing.aliyuncs.com/aqxgx/postgres:16.7
+    container_name: xmes-postgresql
     restart: always
     command: [ "postgres","-c","max_connections=8000" ]
     environment:
       TZ: ${TZ:-Asia/Shanghai}
-      POSTGRES_DB: ${DB_DATABASE:-xadmin}
+      POSTGRES_DB: ${DB_DATABASE:-xmes}
       POSTGRES_USER: ${DB_USER:-server}
       POSTGRES_PASSWORD: ${DB_PASSWORD:-KGzKjZpWBp4R4RSa}
     volumes:
-      - ${VOLUME_DIR:-../}/xadmin-postgresql/data:/var/lib/postgresql/data
+      - ${VOLUME_DIR:-../}/xmes-postgresql/data:/var/lib/postgresql/data
     healthcheck:
       test: "pg_isready -q -U $$POSTGRES_USER -d $$POSTGRES_DB"
       interval: 10s
@@ -41,9 +41,9 @@ services:
       - net
 
   redis:
-    image: registry.cn-beijing.aliyuncs.com/nineaiyu/redis:7.4.2
-    container_name: xadmin-redis
-    hostname: xadmin-redis
+    image: registry.cn-beijing.aliyuncs.com/aqxgx/redis:7.4.2
+    container_name: xmes-redis
+    hostname: xmes-redis
     restart: always
     command: [ "redis-server", "--requirepass", "${REDIS_PASSWORD:-nineven}", "--port", "${REDIS_PORT:-6379}" ]
     environment:
@@ -51,7 +51,7 @@ services:
       REDIS_PORT: ${REDIS_PORT:-6379}
       REDIS_PASSWORD: ${REDIS_PASSWORD:-nineven}
     volumes:
-      - ${VOLUME_DIR:-../}/xadmin-redis/data:/data
+      - ${VOLUME_DIR:-../}/xmes-redis/data:/data
     healthcheck:
       test: "redis-cli -h 127.0.0.1 -p $$REDIS_PORT -a $$REDIS_PASSWORD info Replication"
       interval: 10s
@@ -62,9 +62,9 @@ services:
       - net
 
   server:
-    image: xadmin-server
-    container_name: xadmin-server
-    hostname: xadmin-server
+    image: xmes_server
+    container_name: xmes_server
+    hostname: xmes_server
     build:
       context: .
       dockerfile: Dockerfile-dev
@@ -74,8 +74,8 @@ services:
     privileged: true
     command: start web
     volumes:
-      - ./:/data/xadmin-server
-    #      - ${VOLUME_DIR:-.}/server/data:/data/xadmin-server/data
+      - ./:/data/xmes_server
+    #      - ${VOLUME_DIR:-.}/server/data:/data/xmes_server/data
     healthcheck:
       test: "curl -fsL http://localhost:8896/api/common/api/health > /dev/null"
       interval: 10s
@@ -90,9 +90,9 @@ services:
       - net
 
   celery:
-    image: xadmin-server
-    container_name: xadmin-celery
-    hostname: xadmin-celery
+    image: xmes_server
+    container_name: xmes-celery
+    hostname: xmes-celery
     build:
       context: .
       dockerfile: Dockerfile-dev
@@ -102,8 +102,8 @@ services:
     privileged: true
     command: start task
     volumes:
-      - ./:/data/xadmin-server
-    #      - ${VOLUME_DIR:-.}/server/data:/data/xadmin-server/data
+      - ./:/data/xmes_server
+    #      - ${VOLUME_DIR:-.}/server/data:/data/xmes_server/data
     healthcheck:
       test: "bash utils/check_celery.sh"
       interval: 10s

@@ -149,8 +149,8 @@ CACHES = {
     },
 }
 
-# create database xadmin default character set utf8 COLLATE utf8_general_ci;
-# grant all on xadmin.* to server@'127.0.0.1' identified by 'KGzKjZpWBp4R4RSa';
+# create database xmes default character set utf8 COLLATE utf8_general_ci;
+# grant all on xmes.* to server@'127.0.0.1' identified by 'KGzKjZpWBp4R4RSa';
 # python manage.py makemigrations
 # python manage.py migrate
 

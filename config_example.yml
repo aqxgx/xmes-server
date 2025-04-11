@@ -18,8 +18,8 @@ SECRET_KEY:
 # 数据库设置
 # ### 更多数据库配置，参考官方文档：https://docs.djangoproject.com/zh-hans/5.0/ref/databases/
 # 创建竖数据库sql
-# create database xadmin default character set utf8mb4 COLLATE utf8mb4_bin;
-# grant all on xadmin.* to server@'127.0.0.1' identified by 'KGzKjZpWBp4R4RSa';
+# create database xmes default character set utf8mb4 COLLATE utf8mb4_bin;
+# grant all on xmes.* to server@'127.0.0.1' identified by 'KGzKjZpWBp4R4RSa';
 
 # SQLite setting:
 # 使用单文件sqlite数据库
@@ -39,7 +39,7 @@ DB_HOST: postgresql
 DB_PORT: 5432
 
 DB_USER: server
-DB_DATABASE: xadmin
+DB_DATABASE: xmes
 #DB_PASSWORD: KGzKjZpWBp4R4RSa
 
 

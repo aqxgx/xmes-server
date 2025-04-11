@@ -1,7 +1,7 @@
-FROM nineaiyu/xadmin-server-base:20250401_063806 AS stage-build
+FROM aqxgx/xmes_server-base:20250401_063806 AS stage-build
 ARG VERSION
 
-WORKDIR /data/xadmin-server
+WORKDIR /data/xmes-server
 
 COPY . .
 
@@ -38,9 +38,9 @@ COPY --from=stage-build /usr/local/bin /usr/local/bin
 #RUN addgroup --system --gid 1001 nginx \
 #    && adduser --system --disabled-login --ingroup nginx --no-create-home --home /nonexistent --gecos "nginx user" --shell /bin/false --uid 1001 nginx
 
-WORKDIR /data/xadmin-server
+WORKDIR /data/xmes-server
 
-VOLUME /data/xadmin-server/data
+VOLUME /data/xmes-server/data
 
 #USER 1001
 

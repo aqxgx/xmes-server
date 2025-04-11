@@ -5,11 +5,11 @@ action=${1-}
 target=${2-}
 
 function usage() {
-  echo "xAdmin Server Management Script"
+  echo "xMes Server Management Script"
   echo
   echo "Usage: "
-  echo "  ./xadmin.sh [COMMAND] [ARGS...]"
-  echo "  ./xadmin.sh --help"
+  echo "  ./xmes.sh [COMMAND] [ARGS...]"
+  echo "  ./xmes.sh --help"
   echo
   echo "  start             Start     API Server"
   echo "  stop              Stop      API Server"
@@ -64,7 +64,7 @@ function close() {
     ${EXE} stop "${target}"
     return
   fi
-  services="xadmin-server"
+  services="xmes_server"
   for i in ${services}; do
     ${EXE} stop "${i}"
   done
@@ -77,10 +77,10 @@ function restart() {
 }
 
 function init_data() {
-  if ${EXE} ps|grep xadmin-server|grep healthy &>/dev/null;then
-    docker exec -it xadmin-server sh -c 'python utils/init_data.py'
+  if ${EXE} ps|grep xmes_server|grep healthy &>/dev/null;then
+    docker exec -it xmes_server sh -c 'python utils/init_data.py'
   else
-    echo "error: xadmin-server not healthy"
+    echo "error: xmes_server not healthy"
     exit 1
   fi
 }

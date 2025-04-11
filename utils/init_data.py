@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
-# project : xadmin-server
+# project : xmes_server
 # filename : tests
 # author : ly_13
 # date : 12/23/2023
@@ -36,7 +36,7 @@ except Exception as e:
     print(f'Perform migrate failed, {e} exit')
 
 # 创建是默认管理员用户，请及时修改信息
-UserInfo.objects.create_superuser('xadmin', 'xadmin@dvcloud.xin', 'xAdminPwd!')
+UserInfo.objects.create_superuser('xmes', 'xmes@dvcloud.xin', 'xMesPwd!')
 
 management.call_command('load_init_json', )
 

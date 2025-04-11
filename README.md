@@ -1,12 +1,12 @@
-# xadmin-server
+# xmes_server
 
-xadmin-基于Django+vue3的rbac权限管理系统
+xmes-基于Django+vue3的rbac权限管理系统
 
-前端 [xadmin-client](https://github.com/nineaiyu/xadmin-client)
+前端 [xmes-client](https://github.com/aqxgx/xmes-client)
 
 ### 在线预览
 
-[https://xadmin.dvcloud.xin/](https://xadmin.dvcloud.xin/)
+[https://xmes.dvcloud.xin/](https://xmes.dvcloud.xin/)
 账号密码：admin/admin123
 
 ## 开发部署文档
@@ -52,8 +52,8 @@ python -m celery -A server flower -logging=info --url_prefix=api/flower --auto_r
 
 ## 捐赠or鼓励
 
-如果你觉得这个项目帮助到了你，你可以[star](https://github.com/nineaiyu/xadmin-server)表示鼓励，也可以帮作者买一杯果汁🍹表示鼓励。
+如果你觉得这个项目帮助到了你，你可以[star](https://github.com/aqxgx/xmes_server)表示鼓励，也可以帮作者买一杯果汁🍹表示鼓励。
 
 | 微信                                                                                     | 支付宝                                                                                     |
 |----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| <img src="http://qiniu.cdn.xadmin.dvcloud.xin/pay/wxpay.jpg" height="188" width="188"> | <img src="http://qiniu.cdn.xadmin.dvcloud.xin/pay/alipay.jpg" height="188" width="188"> |
+| <img src="http://qiniu.cdn.xmes.dvcloud.xin/pay/wxpay.jpg" height="188" width="188"> | <img src="http://qiniu.cdn.xmes.dvcloud.xin/pay/alipay.jpg" height="188" width="188"> |
