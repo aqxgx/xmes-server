@@ -1,13 +1,8 @@
-# xadmin-server
+# xmes-server
 
-xadmin-基于Django+vue3的rbac权限管理系统
+xmes-基于Django+vue3的rbac权限管理系统
 
-前端 [xadmin-client](https://github.com/nineaiyu/xadmin-client)
-
-### 在线预览
-
-[https://xadmin.dvcloud.xin/](https://xadmin.dvcloud.xin/)
-账号密码：admin/admin123
+前端 [xmes-client](https://github.com/aqxgx/xmes-client)
 
 ## 开发部署文档
 
@@ -34,7 +29,7 @@ CREATE USER server WITH PASSWORD 'KGzKjZpWBp4R4RSa';
 -- 授予用户对数据库的所有权限
 GRANT ALL PRIVILEGES ON DATABASE xadmin TO server;
 
--- 切换到xadmin数据库
+-- 切换到xmes数据库
 \c xadmin;
 
 -- 授予用户对 schema 的使用和创建权限
@@ -59,11 +54,11 @@ echo -e '\nrequirepass nineven' >> /etc/redis/redis.conf   # 用于添加redis�
 echo -e '\n127.0.0.1 redis' >> /etc/hosts   # 用于添加redis本地解析
 systemctl enable redis
 systemctl restart redis
-mkdir -pv /data/xadmin/
-cd /data/xadmin/
+mkdir -pv /data/xmes/
+cd /data/xmes/
 python3.12 -m venv py312
 dnf install git -y
-cd /data/xadmin/
+cd /data/xmes/
 git clone https://github.com/aqxgx/xmes-server.git
 
 sudo tee /etc/yum.repos.d/mariadb.repo <<'EOF'
@@ -76,9 +71,9 @@ EOF
 curl -sS https://downloads.mariadb.com/MariaDB/mariadb_repo_setup | sudo bash
 dnf install MariaDB-devel -y
 
-source /data/xadmin/py312/bin/activate
+source /data/xmes/py312/bin/activate
 pip install --upgrade pip
-cd /data/xadmin/xadmin-server
+cd /data/xmes/xmes-server
 pip install -r requirements.txt
 
 
@@ -119,8 +114,8 @@ python -m celery -A server flower -logging=info --url_prefix=api/flower --auto_r
 
 ## 捐赠or鼓励
 
-如果你觉得这个项目帮助到了你，你可以[star](https://github.com/nineaiyu/xadmin-server)表示鼓励，也可以帮作者买一杯果汁🍹表示鼓励。
+如果你觉得这个项目帮助到了你，你可以[star](https://github.com/aqxgx/xmes-server)表示鼓励，也可以帮作者买一杯果汁🍹表示鼓励。
 
 | 微信                                                                                     | 支付宝                                                                                     |
 |----------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| <img src="http://qiniu.cdn.xadmin.dvcloud.xin/pay/wxpay.jpg" height="188" width="188"> | <img src="http://qiniu.cdn.xadmin.dvcloud.xin/pay/alipay.jpg" height="188" width="188"> |
+| <img src="http://qiniu.cdn.xmes.dvcloud.xin/pay/wxpay.jpg" height="188" width="188"> | <img src="http://qiniu.cdn.xmes.dvcloud.xin/pay/alipay.jpg" height="188" width="188"> |
